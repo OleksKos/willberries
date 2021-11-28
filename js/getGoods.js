@@ -1,6 +1,8 @@
 const getGoods = () => {
   //First - discribe the varibles
   const links = document.querySelectorAll('.navigation-link');
+  const more = document.querySelector('.more')
+
 
   const renderGoods = (goods) => {
     console.log(goods);
@@ -55,6 +57,13 @@ const getGoods = () => {
 
   if (localStorage.getItem('goods') && window.location.pathname === '/goods.html') {
     renderGoods(JSON.parse(localStorage.getItem('goods')))
+  }
+
+  if (more) {
+    more.addEventListener('click', (e) => {
+      e.preventDefault();
+      getData();
+    })
   }
 
 }
